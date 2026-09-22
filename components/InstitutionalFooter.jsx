@@ -73,9 +73,9 @@ export default function InstitutionalFooter() {
         {/* Notice */}
         <div className="border-t border-gray-100 bg-gray-50 px-6 py-3 sm:px-8">
           <p className="text-center text-[10px] leading-4 text-gray-400">
-            This form is intended for institutional Pre-Incubation and
-            innovation activities. Please retain a copy of the submitted
-            application for your records.
+            This form is intended for institutional R&I D and innovation
+            activities. Please retain a copy of the submitted application for
+            your records.
           </p>
         </div>
 

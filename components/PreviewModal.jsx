@@ -108,7 +108,7 @@ export default function PreviewModal({ formData, onClose }) {
         <header className="flex shrink-0 items-center justify-between border-b border-gray-200/80 bg-white px-5 py-4.5 sm:px-8">
           <div>
             <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-institute-red">
-              Pre-Incubation Application
+              R&I D Application
             </p>
 
             <h2
@@ -387,7 +387,7 @@ export default function PreviewModal({ formData, onClose }) {
 
             <p className="mt-1 text-xs leading-5 text-amber-700">
               Make sure the details provided are accurate before proceeding with
-              the final submission of the pre-incubation application.
+              the final submission of the R&I D application.
             </p>
           </div>
         </main>

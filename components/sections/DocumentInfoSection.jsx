@@ -21,9 +21,9 @@ export default function DocumentInfoSection({ data, onChange }) {
               </h3>
 
               <p className="mt-1 text-xs leading-5 text-gray-500">
-                Provide the basic information associated with this
-                Pre-Incubation application. Fields marked as assigned by the
-                Centre will be completed by the R&I D.
+                Provide the basic information associated with this R&I D
+                application. Fields marked as assigned by the Centre will be
+                completed by the R&I D.
               </p>
             </div>
           </div>

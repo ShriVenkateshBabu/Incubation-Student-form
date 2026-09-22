@@ -366,7 +366,7 @@ export default function SubmissionPdfDocument({ formData }) {
     <Document
       title={DOCUMENT_TITLE}
       author={COLLEGE_NAME}
-      subject="Pre-Incubation Student Startup / Innovation Idea Submission"
+      subject="R&I D Student Startup / Innovation Idea Submission"
     >
       {/* ---------------- PAGE(S) 1..N — STUDENT SUBMISSION ---------------- */}
       <Page size="A4" style={styles.page} wrap>
@@ -399,8 +399,8 @@ export default function SubmissionPdfDocument({ formData }) {
           This form is intended for students of {COLLEGE_NAME} who wish to
           submit an innovative idea, startup concept, product, service,
           technology solution, prototype, or social innovation idea for
-          evaluation and potential admission into the Pre-Incubation Programme
-          of the College.
+          evaluation and potential admission into the R&I D Programme of the
+          College.
         </Text>
 
         {/* Section A */}
@@ -628,9 +628,9 @@ export default function SubmissionPdfDocument({ formData }) {
             I hereby declare that the information provided in this form is true
             and accurate to the best of my knowledge. I understand that
             submission of this form does not automatically guarantee admission
-            into the Pre-Incubation Programme. I agree to participate in the
-            evaluation process and provide additional information or
-            documentation if required by the R&I D.
+            into the R&I D Programme. I agree to participate in the evaluation
+            process and provide additional information or documentation if
+            required by the R&I D.
           </Text>
           <Text style={{ marginBottom: 4 }}>
             Declaration Accepted: {declaration.agreed ? "[X] Yes" : "[ ] No"}
@@ -698,7 +698,7 @@ export default function SubmissionPdfDocument({ formData }) {
         </Text>
         <SingleChoice
           options={[
-            "Proceed to Pre-Incubation",
+            "Proceed to R&I D",
             "Revise and Resubmit",
             "Further Evaluation Required",
             "Not Selected",
@@ -726,7 +726,7 @@ export default function SubmissionPdfDocument({ formData }) {
         </View>
 
         <View style={[styles.adminHeader, { marginTop: 16 }]} wrap={false}>
-          <Text style={styles.adminHeaderText}>PRE-INCUBATION ADMISSION</Text>
+          <Text style={styles.adminHeaderText}>R&I D ADMISSION</Text>
         </View>
         <Text style={styles.blockLabel}>Status</Text>
         <SingleChoice
@@ -749,9 +749,7 @@ export default function SubmissionPdfDocument({ formData }) {
           </View>
           <View style={styles.signatureBlock}>
             <View style={styles.signatureLine} />
-            <Text style={styles.signatureCaption}>
-              Pre-Incubation Coordinator
-            </Text>
+            <Text style={styles.signatureCaption}>R&I D Coordinator</Text>
           </View>
           <View style={styles.signatureBlock}>
             <View style={styles.signatureLine} />

@@ -31,7 +31,7 @@ export default function DeclarationSection({
             I hereby declare that the information provided in this application
             is true, complete, and accurate to the best of my knowledge. I
             understand that submission of this application does not
-            automatically guarantee admission into the Pre-Incubation Programme.
+            automatically guarantee admission into the R&I D Programme.
           </p>
 
           <p className="mt-3 text-sm leading-6 text-gray-700">
@@ -141,9 +141,9 @@ export default function DeclarationSection({
               Important:
             </span>{" "}
             Submission of this application indicates your willingness to
-            participate in the Pre-Incubation Programme evaluation process.
-            Selection and admission will be subject to the applicable evaluation
-            criteria and institutional guidelines.
+            participate in the R&I D Programme evaluation process. Selection and
+            admission will be subject to the applicable evaluation criteria and
+            institutional guidelines.
           </p>
         </div>
       </div>

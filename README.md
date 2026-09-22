@@ -1,4 +1,4 @@
-# AAA College — Pre-Incubation Student Startup / Innovation Idea Submission Form
+# AAA College — R&I D Student Startup / Innovation Idea Submission Form
 
 A Next.js + React web application for the **R&I D** at
 **AAA College of Engineering and Technology**. Students fill in the form

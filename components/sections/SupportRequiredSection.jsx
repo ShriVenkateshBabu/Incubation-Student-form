@@ -23,7 +23,7 @@ export default function SupportRequiredSection({
 
             <div>
               <h3 className="text-sm font-semibold text-institute-text">
-                Pre-Incubation Support Requirements
+                R&I D Support Requirements
               </h3>
 
               <p className="mt-1 text-xs leading-5 text-gray-500">

@@ -135,8 +135,8 @@ export default function ProjectStatusSection({
 
             <p className="mt-1 text-xs leading-5 text-gray-600">
               Your proposed activities and timeline may be adjusted during the
-              Pre-Incubation Programme based on technical validation, mentor
-              feedback, available resources, and project progress.
+              R&I D Programme based on technical validation, mentor feedback,
+              available resources, and project progress.
             </p>
           </div>
         </div>
