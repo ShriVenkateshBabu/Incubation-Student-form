@@ -87,7 +87,7 @@ export default function InstitutionalFooter() {
       <div className="mt-3 flex flex-col items-center justify-between gap-1 text-[10px] text-gray-400 sm:flex-row">
         <span>{COLLEGE_NAME}</span>
 
-        <span>Pre-Incubation Centre • Student Innovation Programme</span>
+        <span>R&I D • Student Innovation Programme</span>
       </div>
     </footer>
   );

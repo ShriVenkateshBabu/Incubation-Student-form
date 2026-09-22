@@ -37,7 +37,7 @@ export default function DeclarationSection({
           <p className="mt-3 text-sm leading-6 text-gray-700">
             I agree to participate in the evaluation process and provide any
             additional information, clarification, or supporting documentation
-            that may be required by the Pre-Incubation Centre.
+            that may be required by the R&I D.
           </p>
         </div>
 

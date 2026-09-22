@@ -2,7 +2,7 @@
   "name": "aaa-preincubation-submission-form",
   "version": "1.0.0",
   "private": true,
-  "description": "AAA College of Engineering and Technology - Pre-Incubation Centre - Student Startup / Innovation Idea Submission Form",
+  "description": "AAA College of Engineering and Technology - R&I D - Student Startup / Innovation Idea Submission Form",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

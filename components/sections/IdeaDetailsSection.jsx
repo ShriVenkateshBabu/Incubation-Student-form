@@ -29,8 +29,8 @@ export default function IdeaDetailsSection({
 
               <p className="mt-1 text-xs leading-5 text-gray-500">
                 Describe your idea clearly and explain the problem it aims to
-                solve. The information provided here will help the
-                Pre-Incubation Centre understand and evaluate your idea.
+                solve. The information provided here will help the R&I D
+                understand and evaluate your idea.
               </p>
             </div>
           </div>

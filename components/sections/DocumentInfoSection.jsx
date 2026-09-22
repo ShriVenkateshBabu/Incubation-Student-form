@@ -23,7 +23,7 @@ export default function DocumentInfoSection({ data, onChange }) {
               <p className="mt-1 text-xs leading-5 text-gray-500">
                 Provide the basic information associated with this
                 Pre-Incubation application. Fields marked as assigned by the
-                Centre will be completed by the Pre-Incubation Centre.
+                Centre will be completed by the R&I D.
               </p>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function DocumentInfoSection({ data, onChange }) {
               name="applicationId"
               value={data.applicationId}
               onChange={onChange}
-              placeholder="Assigned by the Pre-Incubation Centre"
+              placeholder="Assigned by the R&I D"
             />
 
             <FormField
@@ -101,9 +101,9 @@ export default function DocumentInfoSection({ data, onChange }) {
             </p>
 
             <p className="mt-1 text-xs leading-5 text-gray-600">
-              The Application ID may be assigned by the Pre-Incubation Centre
-              during the application processing stage. Please retain the
-              assigned Application ID for future communication and reference.
+              The Application ID may be assigned by the R&I D during the
+              application processing stage. Please retain the assigned
+              Application ID for future communication and reference.
             </p>
           </div>
         </div>

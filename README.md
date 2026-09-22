@@ -1,6 +1,6 @@
 # AAA College — Pre-Incubation Student Startup / Innovation Idea Submission Form
 
-A Next.js + React web application for the **Pre-Incubation Centre** at
+A Next.js + React web application for the **R&I D** at
 **AAA College of Engineering and Technology**. Students fill in the form
 in the browser and download a real, text-based, selectable, print-ready
 **A4 PDF** (built with `@react-pdf/renderer` — not a screenshot).
@@ -59,7 +59,7 @@ components/ui/               Reusable field, textarea, checkbox/radio group, sec
 components/sections/         One component per form section (A–I + Document Info)
 components/pdf/
   SubmissionPdfDocument.jsx  The @react-pdf/renderer document — header/footer on every
-                             page, all sections, and the "Pre-Incubation Centre use only"
+                             page, all sections, and the "R&I D use only"
                              evaluation + admission pages
 components/InstitutionalHeader.jsx / InstitutionalFooter.jsx   On-screen header/footer
 components/PreviewModal.jsx  Read-only review before download
@@ -81,7 +81,7 @@ pages/index.js               Orchestrates state, validation, draft save/load, PD
 - Download PDF: A4, portrait, selectable text, institutional header
   and footer with page numbers repeated on every page, tables that
   don't overflow the page width, and a second page reserved for
-  **"For Pre-Incubation Centre Use Only"** (screening, evaluation
+  **"For R&I D Use Only"** (screening, evaluation
   table, committee recommendation, admission decision) — left blank
   for the Centre to fill after printing.
 - Responsive layout for desktop/tablet/mobile; the PDF is always A4

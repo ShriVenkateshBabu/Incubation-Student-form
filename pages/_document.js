@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <meta
           name="description"
-          content="AAA College of Engineering and Technology — Pre-Incubation Centre — Student Startup / Innovation Idea Submission Form"
+          content="AAA College of Engineering and Technology — R&I D — Student Startup / Innovation Idea Submission Form"
         />
       </Head>
       <body>

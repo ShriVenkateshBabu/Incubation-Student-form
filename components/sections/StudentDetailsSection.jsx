@@ -114,8 +114,8 @@ export default function StudentDetailsSection({ data, errors, onChange }) {
             </h3>
 
             <p className="mt-1 text-xs text-gray-500">
-              Provide an active email address and mobile number for
-              Pre-Incubation Centre communication.
+              Provide an active email address and mobile number for R&I D
+              communication.
             </p>
           </div>
 
@@ -155,8 +155,8 @@ export default function StudentDetailsSection({ data, errors, onChange }) {
 
             <p className="mt-1 text-xs leading-5 text-gray-600">
               Please use your official student details and an active contact
-              number and email address. These details may be used by the
-              Pre-Incubation Centre for application-related communication.
+              number and email address. These details may be used by the R&I D
+              for application-related communication.
             </p>
           </div>
         </div>

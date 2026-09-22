@@ -135,7 +135,7 @@ export default function IntellectualPropertySection({
 
           <div>
             <p className="text-xs font-semibold text-institute-text">
-              Pre-Incubation Centre Support
+              R&I D Support
             </p>
 
             <p className="mt-1 text-xs leading-5 text-gray-600">

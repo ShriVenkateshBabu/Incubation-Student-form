@@ -12,10 +12,7 @@ export default function SupportRequiredSection({
   onToggleOption,
 }) {
   return (
-    <SectionCard
-      sectionLabel="Section G"
-      title="Support Required from Pre-Incubation Centre"
-    >
+    <SectionCard sectionLabel="Section G" title="Support Required from R&I D">
       <div className="space-y-7">
         {/* Section Introduction */}
         <div className="rounded-lg border border-gray-200 bg-gray-50 p-5">
@@ -31,8 +28,7 @@ export default function SupportRequiredSection({
 
               <p className="mt-1 text-xs leading-5 text-gray-500">
                 Select the areas where you would require support, mentoring,
-                infrastructure, or guidance from the Pre-Incubation Centre to
-                develop your idea.
+                infrastructure, or guidance from the R&I D to develop your idea.
               </p>
             </div>
           </div>
@@ -96,9 +92,8 @@ export default function SupportRequiredSection({
             </h3>
 
             <p className="mt-1 text-xs leading-5 text-gray-500">
-              Briefly explain what kind of assistance you expect from the
-              Pre-Incubation Centre and how it would help you progress your
-              idea.
+              Briefly explain what kind of assistance you expect from the R&I D
+              and how it would help you progress your idea.
             </p>
           </div>
 

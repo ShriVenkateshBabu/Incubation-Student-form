@@ -225,7 +225,7 @@ export default function Home() {
 
                   <div>
                     <p className="text-sm font-bold text-slate-900">
-                      Pre-Incubation Idea Submission
+                      R&I D Idea Submission
                     </p>
                     <p className="text-xs text-slate-500">
                       Complete all required fields before submission
@@ -413,14 +413,14 @@ export default function Home() {
                   </div>
 
                   <h1 className="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
-                    Pre-Incubation Idea Submission Form
+                    R&I D Idea Submission Form
                   </h1>
 
                   <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 sm:text-base">
                     Submit your innovative idea, startup concept, product,
                     service, technology solution, prototype, or social
                     innovation idea for evaluation and potential admission into
-                    the Pre-Incubation Programme.
+                    the R&I D Programme.
                   </p>
                 </div>
 
@@ -509,7 +509,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-xs font-bold text-slate-800">
-                      Pre-Incubation
+                      R&I D Support
                     </p>
                     <p className="mt-1 text-xs leading-5 text-slate-500">
                       Supports ideas from concept to early stage
@@ -644,8 +644,8 @@ export default function Home() {
                     Ready to submit?
                   </h2>
                   <p className="mt-1 max-w-xl text-sm leading-5 text-slate-500">
-                    Review your information before generating the official
-                    pre-incubation application PDF.
+                    Review your information before generating the official R&I D
+                    application PDF.
                   </p>
                 </div>
               </div>

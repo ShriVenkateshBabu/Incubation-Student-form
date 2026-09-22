@@ -309,7 +309,7 @@ export default function PreviewModal({ formData, onClose }) {
           {/* Section G */}
           <Section
             title="Section G — Support Required"
-            description="Support, facilities or mentoring required from the pre-incubation centre."
+            description="Support, facilities or mentoring required from the R&I D."
           >
             <div className="grid grid-cols-1 gap-2 border-b border-gray-100/80 py-4 last:border-b-0 sm:grid-cols-[200px_minmax(0,1fr)] sm:gap-8">
               <dt className="text-[11px] font-bold uppercase tracking-[0.08em] text-gray-500">

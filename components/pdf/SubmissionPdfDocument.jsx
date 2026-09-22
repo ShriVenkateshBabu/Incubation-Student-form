@@ -5,7 +5,15 @@
 // The header and footer are marked `fixed` so they repeat on every
 // page automatically, including the page-number counter.
 
-import { Document, Page, View, Text, Image, StyleSheet, Font } from "@react-pdf/renderer";
+import {
+  Document,
+  Page,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Font,
+} from "@react-pdf/renderer";
 
 // Disable automatic word hyphenation (e.g. "venky@exam-\nple.com") so long
 // tokens like emails wrap cleanly at the next space instead of mid-word.
@@ -166,7 +174,12 @@ const styles = StyleSheet.create({
   },
   checkLabel: { flex: 1 },
 
-  table: { borderWidth: 0.7, borderColor: "#999", marginTop: 2, marginBottom: 4 },
+  table: {
+    borderWidth: 0.7,
+    borderColor: "#999",
+    marginTop: 2,
+    marginBottom: 4,
+  },
   tr: { flexDirection: "row" },
   th: {
     backgroundColor: "#F1E4E4",
@@ -314,7 +327,8 @@ function FooterFixed() {
       <View style={styles.footerRule} />
       <View style={styles.footerRow}>
         <Text>
-          {COLLEGE_NAME}{"\n"}
+          {COLLEGE_NAME}
+          {"\n"}
           {CENTRE_NAME}
         </Text>
         <Text>Student Startup / Innovation Idea Submission Form</Text>
@@ -343,7 +357,7 @@ export default function SubmissionPdfDocument({ formData }) {
   } = formData;
 
   const filledMembers = teamDetails.members.filter((m) =>
-    Object.values(m).some((v) => v && v.trim())
+    Object.values(m).some((v) => v && v.trim()),
   );
   const membersToShow =
     filledMembers.length > 0 ? filledMembers : teamDetails.members;
@@ -385,8 +399,8 @@ export default function SubmissionPdfDocument({ formData }) {
           This form is intended for students of {COLLEGE_NAME} who wish to
           submit an innovative idea, startup concept, product, service,
           technology solution, prototype, or social innovation idea for
-          evaluation and potential admission into the Pre-Incubation
-          Programme of the College.
+          evaluation and potential admission into the Pre-Incubation Programme
+          of the College.
         </Text>
 
         {/* Section A */}
@@ -398,8 +412,14 @@ export default function SubmissionPdfDocument({ formData }) {
               value={studentDetails.registerNumber}
             />
             <Field label="Department" value={studentDetails.department} />
-            <Field label="Programme / Course" value={studentDetails.programme} />
-            <Field label="Year / Semester" value={studentDetails.yearSemester} />
+            <Field
+              label="Programme / Course"
+              value={studentDetails.programme}
+            />
+            <Field
+              label="Year / Semester"
+              value={studentDetails.yearSemester}
+            />
             <Field label="Email ID" value={studentDetails.email} />
             <Field label="Mobile Number" value={studentDetails.mobileNumber} />
           </View>
@@ -433,7 +453,9 @@ export default function SubmissionPdfDocument({ formData }) {
                 <Text style={[styles.td, { width: "22%" }]}>
                   {member.department || "—"}
                 </Text>
-                <Text style={[styles.td, { width: "20%", borderRightWidth: 0 }]}>
+                <Text
+                  style={[styles.td, { width: "20%", borderRightWidth: 0 }]}
+                >
                   {member.role || "—"}
                 </Text>
               </View>
@@ -444,13 +466,27 @@ export default function SubmissionPdfDocument({ formData }) {
 
         {/* Section C */}
         <SectionBox label="Section C" title="Idea Details">
-          <Field label="Title of the Idea / Startup" value={ideaDetails.title} width="100%" />
+          <Field
+            label="Title of the Idea / Startup"
+            value={ideaDetails.title}
+            width="100%"
+          />
           <Text style={styles.blockLabel}>Category of Idea</Text>
-          <CheckOptions options={IDEA_CATEGORIES} selected={ideaDetails.categories} />
+          <CheckOptions
+            options={IDEA_CATEGORIES}
+            selected={ideaDetails.categories}
+          />
           {ideaDetails.categories.includes("Other") && (
-            <Field label="Other category" value={ideaDetails.otherCategory} width="100%" />
+            <Field
+              label="Other category"
+              value={ideaDetails.otherCategory}
+              width="100%"
+            />
           )}
-          <TextBlock label="Brief Description of the Idea" value={ideaDetails.briefDescription} />
+          <TextBlock
+            label="Brief Description of the Idea"
+            value={ideaDetails.briefDescription}
+          />
           <TextBlock
             label="What problem does your idea address?"
             value={ideaDetails.problemAddressed}
@@ -459,7 +495,10 @@ export default function SubmissionPdfDocument({ formData }) {
             label="Who are the intended users / beneficiaries / customers?"
             value={ideaDetails.intendedUsers}
           />
-          <TextBlock label="Proposed Solution" value={ideaDetails.proposedSolution} />
+          <TextBlock
+            label="Proposed Solution"
+            value={ideaDetails.proposedSolution}
+          />
         </SectionBox>
 
         {/* Section D */}
@@ -477,7 +516,10 @@ export default function SubmissionPdfDocument({ formData }) {
             value={innovationTechnology.resourcesRequired}
           />
           <Text style={styles.blockLabel}>Current Stage of the Idea</Text>
-          <SingleChoice options={IDEA_STAGES} value={innovationTechnology.currentStage} />
+          <SingleChoice
+            options={IDEA_STAGES}
+            value={innovationTechnology.currentStage}
+          />
         </SectionBox>
 
         {/* Section E */}
@@ -493,18 +535,28 @@ export default function SubmissionPdfDocument({ formData }) {
           <Text style={styles.blockLabel}>
             Have you identified similar existing products or competitors?
           </Text>
-          <SingleChoice options={["Yes", "No"]} value={marketPotential.hasCompetitors} />
+          <SingleChoice
+            options={["Yes", "No"]}
+            value={marketPotential.hasCompetitors}
+          />
           {marketPotential.hasCompetitors === "Yes" && (
-            <TextBlock label="Details" value={marketPotential.competitorDetails} />
+            <TextBlock
+              label="Details"
+              value={marketPotential.competitorDetails}
+            />
           )}
           <Text style={styles.blockLabel}>Potential Impact</Text>
-          <CheckOptions options={IMPACT_AREAS} selected={marketPotential.impactAreas} />
+          <CheckOptions
+            options={IMPACT_AREAS}
+            selected={marketPotential.impactAreas}
+          />
         </SectionBox>
 
         {/* Section F */}
         <SectionBox label="Section F" title="Intellectual Property">
           <Text style={styles.blockLabel}>
-            Does your idea contain potentially protectable intellectual property?
+            Does your idea contain potentially protectable intellectual
+            property?
           </Text>
           <SingleChoice
             options={["Yes", "No", "Not Sure"]}
@@ -515,19 +567,28 @@ export default function SubmissionPdfDocument({ formData }) {
             options={IP_STATUS_OPTIONS}
             selected={intellectualProperty.ipStatus}
           />
-          <TextBlock label="IP Details" value={intellectualProperty.ipDetails} />
+          <TextBlock
+            label="IP Details"
+            value={intellectualProperty.ipDetails}
+          />
           <Text style={styles.note}>
-            Students are advised not to publicly disclose confidential
-            technical details before obtaining appropriate intellectual
-            property guidance.
+            Students are advised not to publicly disclose confidential technical
+            details before obtaining appropriate intellectual property guidance.
           </Text>
         </SectionBox>
 
         {/* Section G */}
-        <SectionBox label="Section G" title="Support Required from Pre-Incubation Centre">
-          <CheckOptions options={SUPPORT_OPTIONS} selected={supportRequired.options} />
+        <SectionBox label="Section G" title="Support Required from R&I D">
+          <CheckOptions
+            options={SUPPORT_OPTIONS}
+            selected={supportRequired.options}
+          />
           {supportRequired.options.includes("Other") && (
-            <Field label="Other support" value={supportRequired.otherSupport} width="100%" />
+            <Field
+              label="Other support"
+              value={supportRequired.otherSupport}
+              width="100%"
+            />
           )}
           <TextBlock
             label="Briefly describe the support required"
@@ -546,7 +607,10 @@ export default function SubmissionPdfDocument({ formData }) {
           <Text style={[styles.blockLabel, { marginTop: 4 }]}>
             Expected Development Timeline
           </Text>
-          <SingleChoice options={TIMELINE_OPTIONS} value={projectStatus.timeline} />
+          <SingleChoice
+            options={TIMELINE_OPTIONS}
+            value={projectStatus.timeline}
+          />
           <Text style={styles.blockLabel}>
             Do you intend to develop this idea into a startup?
           </Text>
@@ -558,14 +622,15 @@ export default function SubmissionPdfDocument({ formData }) {
 
         {/* Section I */}
         <SectionBox label="Section I" title="Student Declaration">
-          <Text style={{ lineHeight: 1.4, marginBottom: 6, textAlign: "justify" }}>
-            I hereby declare that the information provided in this form is
-            true and accurate to the best of my knowledge. I understand that
-            submission of this form does not automatically guarantee
-            admission into the Pre-Incubation Programme. I agree to
-            participate in the evaluation process and provide additional
-            information or documentation if required by the Pre-Incubation
-            Centre.
+          <Text
+            style={{ lineHeight: 1.4, marginBottom: 6, textAlign: "justify" }}
+          >
+            I hereby declare that the information provided in this form is true
+            and accurate to the best of my knowledge. I understand that
+            submission of this form does not automatically guarantee admission
+            into the Pre-Incubation Programme. I agree to participate in the
+            evaluation process and provide additional information or
+            documentation if required by the R&I D.
           </Text>
           <Text style={{ marginBottom: 4 }}>
             Declaration Accepted: {declaration.agreed ? "[X] Yes" : "[ ] No"}
@@ -589,9 +654,7 @@ export default function SubmissionPdfDocument({ formData }) {
         <FooterFixed />
 
         <View style={styles.adminHeader}>
-          <Text style={styles.adminHeaderText}>
-            FOR PRE-INCUBATION CENTRE USE ONLY
-          </Text>
+          <Text style={styles.adminHeaderText}>FOR R&I D USE ONLY</Text>
         </View>
 
         <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
@@ -610,7 +673,9 @@ export default function SubmissionPdfDocument({ formData }) {
           value=""
         />
 
-        <Text style={[styles.blockLabel, { marginTop: 8 }]}>Idea Evaluation</Text>
+        <Text style={[styles.blockLabel, { marginTop: 8 }]}>
+          Idea Evaluation
+        </Text>
         <View style={styles.table}>
           <View style={styles.tr}>
             <Text style={[styles.th, { width: "65%" }]}>Parameter</Text>
@@ -621,7 +686,9 @@ export default function SubmissionPdfDocument({ formData }) {
           {EVALUATION_PARAMETERS.map((param) => (
             <View style={styles.tr} key={param} wrap={false}>
               <Text style={[styles.td, { width: "65%" }]}>{param}</Text>
-              <Text style={[styles.td, { width: "35%", borderRightWidth: 0 }]}> </Text>
+              <Text style={[styles.td, { width: "35%", borderRightWidth: 0 }]}>
+                {" "}
+              </Text>
             </View>
           ))}
         </View>
@@ -662,7 +729,10 @@ export default function SubmissionPdfDocument({ formData }) {
           <Text style={styles.adminHeaderText}>PRE-INCUBATION ADMISSION</Text>
         </View>
         <Text style={styles.blockLabel}>Status</Text>
-        <SingleChoice options={["Admitted", "Not Admitted", "Waitlisted"]} value="" />
+        <SingleChoice
+          options={["Admitted", "Not Admitted", "Waitlisted"]}
+          value=""
+        />
 
         <View style={styles.signatureRow} wrap={false}>
           <View style={styles.signatureBlock}>
@@ -679,7 +749,9 @@ export default function SubmissionPdfDocument({ formData }) {
           </View>
           <View style={styles.signatureBlock}>
             <View style={styles.signatureLine} />
-            <Text style={styles.signatureCaption}>Pre-Incubation Coordinator</Text>
+            <Text style={styles.signatureCaption}>
+              Pre-Incubation Coordinator
+            </Text>
           </View>
           <View style={styles.signatureBlock}>
             <View style={styles.signatureLine} />
