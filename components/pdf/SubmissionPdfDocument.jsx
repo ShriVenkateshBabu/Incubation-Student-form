@@ -1,10 +1,3 @@
-// components/pdf/SubmissionPdfDocument.jsx
-//
-// Renders the filled-in submission as a genuine, selectable, A4
-// text-based PDF (not a screenshot) using @react-pdf/renderer.
-// The header and footer are marked `fixed` so they repeat on every
-// page automatically, including the page-number counter.
-
 import {
   Document,
   Page,
@@ -22,7 +15,6 @@ import {
   COLLEGE_NAME,
   CENTRE_NAME,
   DOCUMENT_TITLE,
-  COLLEGE_ADDRESS_PLACEHOLDER,
   IDEA_CATEGORIES,
   IDEA_STAGES,
   IMPACT_AREAS,
@@ -78,10 +70,11 @@ const styles = StyleSheet.create({
   },
   headerRule: { height: 2, backgroundColor: RED, marginTop: 8 },
   headerAddress: {
-    fontSize: 7.5,
+    fontSize: 7.2,
     color: "#555",
     textAlign: "center",
     marginTop: 4,
+    lineHeight: 1.15,
   },
 
   footerFixed: {
@@ -145,9 +138,42 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   },
 
-  fieldRow: { flexDirection: "row", marginBottom: 5, flexWrap: "wrap" },
-  fieldLabel: { fontFamily: "Helvetica-Bold", width: 170 },
-  fieldValue: { flex: 1, borderBottomWidth: 0.7, borderColor: "#999" },
+  fieldRow: {
+    flexDirection: "row",
+    alignItems: "flex-end",
+    marginBottom: 5,
+    minHeight: 15,
+    paddingRight: 8,
+    minWidth: 0,
+  },
+  fieldLabel: {
+    fontFamily: "Helvetica-Bold",
+    width: 112,
+    flexShrink: 0,
+    lineHeight: 1.15,
+  },
+  fieldValue: {
+    flex: 1,
+    minWidth: 0,
+    borderBottomWidth: 0.7,
+    borderColor: "#999",
+    paddingBottom: 1,
+    lineHeight: 1.15,
+  },
+
+  declarationFieldRow: {
+    flexDirection: "row",
+    alignItems: "flex-end",
+    width: "50%",
+    minHeight: 18,
+    paddingRight: 10,
+  },
+  declarationFieldLabel: {
+    fontFamily: "Helvetica-Bold",
+    width: 76,
+    flexShrink: 0,
+    lineHeight: 1.15,
+  },
 
   blockLabel: { fontFamily: "Helvetica-Bold", marginBottom: 2 },
   blockValue: {
@@ -159,20 +185,59 @@ const styles = StyleSheet.create({
     marginBottom: 6,
   },
 
-  checkRow: { flexDirection: "row", flexWrap: "wrap", marginBottom: 4 },
+  checkRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginBottom: 4,
+    alignItems: "center",
+  },
   checkItem: {
     flexDirection: "row",
     alignItems: "center",
     width: "33%",
-    marginBottom: 3,
-    paddingRight: 4,
+    marginBottom: 4,
+    paddingRight: 6,
+    minWidth: 0,
   },
-  checkBoxMark: {
-    width: 20,
-    fontFamily: "Helvetica-Bold",
+  checkBox: {
+    width: 12,
+    height: 12,
+    borderWidth: 0.9,
+    borderColor: "#777",
+    borderRadius: 1,
     flexShrink: 0,
+    marginRight: 5,
+    position: "relative",
   },
-  checkLabel: { flex: 1 },
+  checkBoxSelected: {
+    backgroundColor: RED,
+    borderColor: RED,
+  },
+  tickShort: {
+    position: "absolute",
+    width: 2,
+    height: 5,
+    backgroundColor: "#FFFFFF",
+    left: 3,
+    top: 5,
+    transform: "rotate(-45deg)",
+    borderRadius: 1,
+  },
+  tickLong: {
+    position: "absolute",
+    width: 2,
+    height: 8,
+    backgroundColor: "#FFFFFF",
+    left: 7,
+    top: 2,
+    transform: "rotate(45deg)",
+    borderRadius: 1,
+  },
+  checkLabel: {
+    flex: 1,
+    minWidth: 0,
+    lineHeight: 1.15,
+  },
 
   table: {
     borderWidth: 0.7,
@@ -223,36 +288,102 @@ const styles = StyleSheet.create({
     color: RED,
   },
 
-  signatureRow: { flexDirection: "row", marginTop: 14, flexWrap: "wrap" },
-  signatureBlock: { width: "33%", marginBottom: 10 },
+  signatureRow: {
+    flexDirection: "row",
+    marginTop: 12,
+    flexWrap: "wrap",
+    alignItems: "flex-start",
+  },
+  signatureBlock: {
+    width: "33.33%",
+    marginBottom: 8,
+    paddingRight: 8,
+  },
   signatureLine: {
     borderBottomWidth: 0.7,
     borderColor: "#666",
-    marginTop: 16,
+    marginTop: 14,
     marginBottom: 2,
-    width: "90%",
+    width: "100%",
   },
-  signatureCaption: { fontSize: 8 },
+  signatureCaption: {
+    fontSize: 8,
+    lineHeight: 1.1,
+  },
 });
 
 // ---------- Small reusable pieces ----------
 
+function getAdaptiveFontSize(value, base = 9.5) {
+  const length = String(value ?? "").trim().length;
+
+  if (length <= 22) return base;
+  if (length <= 32) return Math.max(base - 0.4, 8.6);
+  if (length <= 44) return Math.max(base - 0.9, 8.0);
+  if (length <= 58) return Math.max(base - 1.3, 7.5);
+  return Math.max(base - 1.8, 7.0);
+}
+
 function Field({ label, value, width }) {
+  const displayValue = value ? String(value) : "";
+  const fontSize = getAdaptiveFontSize(displayValue);
+
   return (
     <View style={[styles.fieldRow, width ? { width } : { width: "50%" }]}>
       <Text style={styles.fieldLabel}>{label}:</Text>
-      <Text style={styles.fieldValue}>{value ? value : " "}</Text>
+      <Text style={[styles.fieldValue, { fontSize }]}>
+        {displayValue || " "}
+      </Text>
+    </View>
+  );
+}
+
+function DeclarationField({ label, value }) {
+  const displayValue = value ? String(value) : "";
+  const fontSize = getAdaptiveFontSize(displayValue, 9.5);
+
+  return (
+    <View style={styles.declarationFieldRow}>
+      <Text style={styles.declarationFieldLabel}>{label}:</Text>
+      <Text style={[styles.fieldValue, { fontSize }]}>
+        {displayValue || " "}
+      </Text>
     </View>
   );
 }
 
 function TextBlock({ label, value }) {
+  const displayValue =
+    value && String(value).trim() ? String(value).trim() : "—";
+  const fontSize = getAdaptiveFontSize(displayValue, 8.8);
+
   return (
     <View wrap={false}>
       <Text style={styles.blockLabel}>{label}</Text>
-      <Text style={styles.blockValue}>
-        {value && value.trim() ? value : "—"}
+      <Text
+        style={[
+          styles.blockValue,
+          {
+            fontSize,
+            lineHeight: fontSize <= 7.8 ? 1.3 : 1.4,
+          },
+        ]}
+      >
+        {displayValue}
       </Text>
+    </View>
+  );
+}
+
+function SelectionMark({ selected }) {
+  return (
+    <View style={[styles.checkBox, selected ? styles.checkBoxSelected : null]}>
+      {selected && (
+        <>
+          <View style={styles.tickShort} />
+          <View style={styles.tickLong} />
+        </>
+      )}
     </View>
   );
 }
@@ -260,14 +391,16 @@ function TextBlock({ label, value }) {
 function CheckOptions({ options, selected = [] }) {
   return (
     <View style={styles.checkRow} wrap={false}>
-      {options.map((option) => (
-        <View style={styles.checkItem} key={option}>
-          <Text style={styles.checkBoxMark}>
-            {selected.includes(option) ? "[X]" : "[ ]"}
-          </Text>
-          <Text style={styles.checkLabel}>{option}</Text>
-        </View>
-      ))}
+      {options.map((option) => {
+        const isSelected = selected.includes(option);
+
+        return (
+          <View style={styles.checkItem} key={option}>
+            <SelectionMark selected={isSelected} />
+            <Text style={styles.checkLabel}>{option}</Text>
+          </View>
+        );
+      })}
     </View>
   );
 }
@@ -275,14 +408,16 @@ function CheckOptions({ options, selected = [] }) {
 function SingleChoice({ options, value }) {
   return (
     <View style={styles.checkRow} wrap={false}>
-      {options.map((option) => (
-        <View style={styles.checkItem} key={option}>
-          <Text style={styles.checkBoxMark}>
-            {value === option ? "[X]" : "[ ]"}
-          </Text>
-          <Text style={styles.checkLabel}>{option}</Text>
-        </View>
-      ))}
+      {options.map((option) => {
+        const isSelected = value === option;
+
+        return (
+          <View style={styles.checkItem} key={option}>
+            <SelectionMark selected={isSelected} />
+            <Text style={styles.checkLabel}>{option}</Text>
+          </View>
+        );
+      })}
     </View>
   );
 }
@@ -314,8 +449,13 @@ function HeaderFixed() {
       </View>
       <View style={styles.headerRule} />
       <Text style={styles.headerAddress}>
-        {COLLEGE_ADDRESS_PLACEHOLDER} · Website: _______________ · Email:
-        _______________ · Phone: _______________
+        Kamarajar Educational Road, Amathur, Sivakasi, Tamil Nadu 626005
+        {" · "}
+        Website: www.aaacollege.ac.in
+        {" · "}
+        Email: innovationcell@aaacollege.ac.in
+        {" · "}
+        Phone: +91 90000 00000
       </Text>
     </View>
   );
@@ -632,12 +772,25 @@ export default function SubmissionPdfDocument({ formData }) {
             process and provide additional information or documentation if
             required by the R&I D.
           </Text>
-          <Text style={{ marginBottom: 4 }}>
-            Declaration Accepted: {declaration.agreed ? "[X] Yes" : "[ ] No"}
-          </Text>
-          <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
-            <Field label="Student Name" value={declaration.studentName} />
-            <Field label="Date" value={declaration.date} />
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginBottom: 5,
+            }}
+          >
+            <Text style={{ fontFamily: "Helvetica-Bold", marginRight: 5 }}>
+              Declaration Accepted:
+            </Text>
+            <SelectionMark selected={declaration.agreed} />
+            <Text>{declaration.agreed ? "Yes" : "No"}</Text>
+          </View>
+          <View style={{ flexDirection: "row", flexWrap: "nowrap" }}>
+            <DeclarationField
+              label="Student Name"
+              value={declaration.studentName}
+            />
+            <DeclarationField label="Date" value={declaration.date} />
           </View>
           <View style={styles.signatureRow} wrap={false}>
             <View style={styles.signatureBlock}>
